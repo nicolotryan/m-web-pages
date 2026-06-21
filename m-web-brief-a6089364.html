@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ng28 · 稳定入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fafafa;
+            color: #1e1e1e;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.7;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            padding: 3.5rem 1.5rem 5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* hero 开场 */
+        .hero-tag {
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e6e6e6;
+            padding-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 1.8rem;
+            color: #111;
+        }
+
+        h1 .badge {
+            display: inline-block;
+            background: #1e1e1e;
+            color: #fafafa;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.05rem 0.65rem;
+            border-radius: 20px;
+            vertical-align: middle;
+            margin-left: 0.3rem;
+            letter-spacing: 0.3px;
+        }
+
+        .intro {
+            font-size: 1.05rem;
+            color: #3a3a3a;
+            margin-bottom: 2.4rem;
+            border-left: 3px solid #d4d4d4;
+            padding-left: 1.2rem;
+        }
+
+        .intro a {
+            color: #1e1e1e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b0b0b0;
+            font-weight: 500;
+            transition: text-decoration-color 0.2s;
+        }
+
+        .intro a:hover {
+            text-decoration-color: #111;
+        }
+
+        /* 承接段落 */
+        .context-block {
+            margin-bottom: 2.8rem;
+        }
+
+        .context-block p {
+            margin-bottom: 1.2rem;
+            font-size: 0.98rem;
+            color: #2c2c2c;
+        }
+
+        .context-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .context-highlight {
+            background: #f0f0f0;
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.95rem;
+            font-weight: 450;
+        }
+
+        /* 特点列表 — 极简卡片 */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 2.6rem 0 3rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-num {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #aaa;
+            min-width: 2rem;
+            line-height: 1.7;
+        }
+
+        .feature-content {
+            flex: 1;
+        }
+
+        .feature-content strong {
+            display: block;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.2rem;
+            color: #111;
+        }
+
+        .feature-content span {
+            font-size: 0.95rem;
+            color: #4a4a4a;
+            display: block;
+        }
+
+        /* 温和结尾 + 场景提示 */
+        .closing-section {
+            margin-top: 2.2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .closing-section p {
+            font-size: 0.98rem;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+        }
+
+        .closing-section .small-note {
+            font-size: 0.88rem;
+            color: #777;
+            background: #f6f6f6;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            line-height: 1.6;
+        }
+
+        .closing-section .small-note strong {
+            color: #1e1e1e;
+            font-weight: 500;
+        }
+
+        .faq-mini {
+            margin-top: 2rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .faq-mini li {
+            font-size: 0.92rem;
+            color: #3e3e3e;
+            padding: 0.65rem 0;
+            border-bottom: 1px dashed #e0e0e0;
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .faq-mini li::before {
+            content: "▸";
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        .faq-mini li:last-child {
+            border-bottom: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 2rem 1.2rem 4rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro {
+                font-size: 0.98rem;
+                padding-left: 1rem;
+            }
+
+            .feature-item {
+                gap: 0.75rem;
+            }
+
+            .feature-num {
+                min-width: 1.5rem;
+            }
+
+            .closing-section .small-note {
+                padding: 0.9rem 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            h1 {
+                font-size: 1.55rem;
+            }
+
+            .feature-content strong {
+                font-size: 0.98rem;
+            }
+        }
+
+        /* 链接风格统一 */
+        a {
+            color: #1e1e1e;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #c0c0c0;
+            transition: text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            text-decoration-color: #111;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 开场短句 -->
+    <div class="hero-tag">/ 持续可用 · 说明页</div>
+    <h1>
+        从稳定的入口<br>理解 <span class="badge">ng28</span>
+    </h1>
+
+    <!-- 承接段落：页面说明 + 自然嵌入链接 -->
+    <div class="intro">
+        <p>
+            对经常需要访问 <a href="https://m-web-ng28.com">ng28</a> 的用户而言，一个可靠且低延迟的起始页
+            能省去反复检索的时间。本页围绕实际场景整理了几项关键信息，供快速参考。
+        </p>
+    </div>
+
+    <!-- 特点列表 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <div class="feature-num">01</div>
+            <div class="feature-content">
+                <strong>地址一致性</strong>
+                <span>域名为固定入口，长期指向同一服务层，降低因链接变动导致的访问中断风险。</span>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-num">02</div>
+            <div class="feature-content">
+                <strong>轻量响应</strong>
+                <span>页面结构精简，加载资源少，在移动端与桌面端均能较快呈现，适合作为日常书签。</span>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-num">03</div>
+            <div class="feature-content">
+                <strong>无额外跳转</strong>
+                <span>直达目标页面，中间不插入中间页或强制跳转，减少等待与认知负担。</span>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-num">04</div>
+            <div class="feature-content">
+                <strong>基础信息可读</strong>
+                <span>当前页面提供简洁说明与环境提示，帮助使用者快速确认状态，而非冗长介绍。</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 场景 + 提示（温和结尾） -->
+    <div class="closing-section">
+        <p>
+            如果你正在寻找一个稳定、无干扰的起始位置，<a href="https://m-web-ng28.com">ng28</a> 
+            的此入口可直接复用，无需每次重新定位。以下为常见使用场景的简要说明：
+        </p>
+
+        <ul class="faq-mini">
+            <li>日常访问：将链接添加至浏览器书签栏，单次点击即可进入。</li>
+            <li>多设备同步：统一使用同一域名，避免因记忆不同地址产生混淆。</li>
+            <li>临时查阅：通过本页快速确认当前可用状态，再决定是否继续。</li>
+            <li>分享给他人：直接发送域名，对方打开即看到当前说明与入口。</li>
+        </ul>
+
+        <div class="small-note">
+            <strong>提示：</strong> 如果你需要更详细的页面功能介绍或使用指南，建议直接通过 
+            <a href="https://m-web-ng28.com">ng28</a> 内的导航或帮助文档进一步了解。
+            本介绍页仅提供稳定的访问起点与基础说明，不替代站内完整信息。
+        </div>
+    </div>
+</div>
+</body>
+</html>
