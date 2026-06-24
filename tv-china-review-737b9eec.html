@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 专题</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fafafa;
+      color: #1e1e1e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.8rem 1.2rem 4rem;
+    }
+
+    /* hero 区域 */
+    .hero {
+      margin-bottom: 3.2rem;
+      border-bottom: 1px solid #e2e2e2;
+      padding-bottom: 2.4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.25rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      margin-bottom: 0.6rem;
+      color: #111;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #5f5f5f;
+      font-weight: 400;
+      max-width: 80%;
+    }
+
+    /* 背景说明 */
+    .background-note {
+      background: #f0f0f0;
+      padding: 1.4rem 1.6rem;
+      border-radius: 16px;
+      margin-bottom: 2.8rem;
+      font-size: 0.95rem;
+      color: #2b2b2b;
+    }
+
+    .background-note strong {
+      font-weight: 500;
+      color: #000;
+    }
+
+    /* 正文段落 */
+    .content-section {
+      margin-bottom: 2.4rem;
+    }
+
+    .content-section p {
+      margin-bottom: 1.1rem;
+    }
+
+    .content-section .lead {
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: #222;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 2.4rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.005em;
+      border-left: 4px solid #1e1e1e;
+      padding-left: 0.8rem;
+    }
+
+    /* 简洁列表 */
+    .brief-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 1.6rem;
+    }
+
+    .brief-list li {
+      padding: 0.4rem 0 0.4rem 1.2rem;
+      position: relative;
+      color: #2c2c2c;
+      font-size: 0.98rem;
+    }
+
+    .brief-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #8a8a8a;
+    }
+
+    /* 引用/提示块 */
+    .tip-box {
+      background: #f7f7f7;
+      border: 1px solid #dddddd;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0;
+      font-size: 0.95rem;
+    }
+
+    .tip-box p {
+      margin-bottom: 0.2rem;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 3.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e2e2;
+      font-size: 0.88rem;
+      color: #5a5a5a;
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .footer-note a {
+      color: #1e1e1e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b0b0b0;
+      transition: text-decoration-color 0.15s;
+    }
+
+    .footer-note a:hover {
+      text-decoration-color: #1e1e1e;
+    }
+
+    /* 响应式 */
+    @media (max-width: 520px) {
+      .page { padding: 1.8rem 1rem 3rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .hero .subhead { max-width: 100%; }
+      .background-note { padding: 1rem 1.2rem; }
+      .section-title { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>爱游戏 · 简明指南</h1>
+      <div class="subhead">一份关于资讯、社区与浏览方式的专题笔记</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <div class="background-note">
+      <strong>关于这个专题</strong> —— 许多人在寻找游戏内容时，常常面对信息零散、入口不明的困扰。本站尝试以平实的视角，整理一份关于<strong>爱游戏</strong>的基本脉络与访问思路，不堆砌术语，也不做夸张推荐，只希望为有需要的人提供一条清晰的路径。
+    </div>
+
+    <!-- 三段自然介绍 -->
+    <div class="content-section">
+      <p class="lead">
+        游戏资讯和社区的价值，往往取决于获取信息的习惯。有人偏好深度长文，有人习惯快速浏览讨论串，也有人只想要一份安静更新的列表。
+        无论偏好哪一种，前提都是有一个稳定、可及的起点。
+      </p>
+
+      <h2 class="section-title">资讯 · 社区 · 视野</h2>
+      <p>
+        在中文互联网上，游戏内容的呈现方式一直在变化。有的平台侧重评测与前瞻，有的聚焦玩家社群和创作分享。
+        如果你正在寻找一个整合了较多游戏信息、同时保持相对克制的风格的地方，可以留意
+        <a href="https://tv-china-igame.com">爱游戏</a>。
+        它的内容涵盖新作消息、经典回顾以及一些实用资源索引，更新节奏平稳，没有过度的推送干扰。
+      </p>
+
+      <p>
+        从访问体验来看，它没有复杂的注册门槛，大部分内容可以直接浏览。版式干净，标题和分类清晰，对初次来访的人比较友好。
+        你可以把它当成一个信息锚点，慢慢探索其中的板块，而不是一次性试图读完所有东西。
+      </p>
+
+      <h2 class="section-title">场景与节奏</h2>
+      <p>
+        无论是午休时快速翻阅一两条动态，还是周末安静地看看长文或评论，一个结构清晰的站点能节省很多筛选成本。
+        就个人使用经验而言，把<strong>爱游戏</strong>放在书签栏里，每隔一两天扫一眼首页更新，基本能覆盖大部分感兴趣的内容。
+        不必强求即时获知所有消息，保持自己的节奏更重要。
+      </p>
+
+      <ul class="brief-list">
+        <li>首页以时间线排列，适合逐条浏览</li>
+        <li>分类标签明确，可按类型筛选</li>
+        <li>评论区氛围偏务实，信息量适中</li>
+      </ul>
+
+      <h2 class="section-title">一点提示</h2>
+      <p>
+        任何站点都只是工具，最终的价值取决于使用者如何与之互动。建议在初次访问时花几分钟了解版块结构，找到最符合自己兴趣的栏目。
+        另外，保持对来源的留意总是好的——即使在一个可信的平台上，也值得养成交叉验证的习惯。
+      </p>
+    </div>
+
+    <!-- 提示块：访问提醒 -->
+    <div class="tip-box">
+      <p><strong>访问提醒</strong> · 如果你尚未到访过，可以直接在浏览器中输入地址。页面加载后建议先查看顶部导航或最新文章列表，那里通常是最新内容的入口。遇到任何排版或链接问题，可以先尝试刷新或更换常用浏览器。</p>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+      <p>本页是一个基于个人视角整理的信息指引。如果你希望直接浏览站点，可使用上方链接前往 <a href="https://tv-china-igame.com">爱游戏</a>。每次访问时保持适度的好奇心就好，不必给自己压力。</p>
+      <p style="margin-top: 0.6rem; color: #8a8a8a;">— 2025 · 专题页</p>
+    </div>
+
+  </div>
+</body>
+</html>
