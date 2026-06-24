@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 电视中文游戏平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f4f7;
+            color: #1e1f24;
+            line-height: 1.7;
+        }
+
+        .wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        /* 深色头图（hero） */
+        .hero {
+            background: linear-gradient(145deg, #0c0d12 0%, #1b1e2a 100%);
+            color: #eaeef2;
+            padding: 3.5rem 2rem 4rem;
+            border-radius: 0 0 48px 48px;
+            margin: -2rem -1.5rem 2rem;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(255,183,77,0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 680px;
+            margin: 0 auto 1.2rem;
+            color: #cbd0db;
+        }
+
+        .hero .motto {
+            display: inline-block;
+            background: rgba(255,193,7,0.15);
+            color: #f7da8c;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,193,7,0.2);
+            margin-top: 0.5rem;
+        }
+
+        /* 正文浅色区 */
+        .content-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
+        }
+
+        .content-card p {
+            margin-bottom: 1.2rem;
+        }
+
+        .content-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro {
+            font-size: 1.08rem;
+        }
+
+        .intro .lead {
+            font-size: 1.2rem;
+            font-weight: 450;
+            color: #2b2e3b;
+            border-left: 4px solid #e3a054;
+            padding-left: 1.2rem;
+            margin: 1.6rem 0 1.4rem;
+        }
+
+        /* 特点列表 – 温和卡片式 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .feature-item {
+            background: #f8f9fd;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            transition: background 0.15s;
+            border: 1px solid #eef0f5;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #1f212b;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .feature-item h3::before {
+            content: '·';
+            color: #e3a054;
+            font-weight: 700;
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #3f4351;
+            margin: 0;
+        }
+
+        /* 提示/FAQ 摘要 */
+        .faq-note {
+            background: #f4f6fc;
+            border-radius: 24px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0 1.2rem;
+            border: 1px solid #e2e6f0;
+        }
+
+        .faq-note h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1e202b;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            color: #2f3342;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #4d5161;
+            font-size: 0.98rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+            border-top: 1px solid #e0e4ed;
+            margin-top: 1.8rem;
+            color: #4f5365;
+        }
+
+        .closing p {
+            max-width: 600px;
+            margin: 0 auto 0.6rem;
+            font-size: 0.98rem;
+        }
+
+        .closing .link-line {
+            font-size: 1.02rem;
+        }
+
+        a {
+            color: #b85f1d;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            color: #8f4b15;
+            border-bottom-color: #b85f1d;
+        }
+
+        .btn-soft {
+            display: inline-block;
+            background: #eef0f7;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            color: #2c2f3f;
+            font-weight: 450;
+            margin: 0.3rem 0;
+            border: 1px solid #dce0eb;
+            transition: background 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-soft:hover {
+            background: #e3e7f2;
+            border-color: #c5cadd;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero { padding: 2.5rem 1.2rem 3rem; }
+            .content-card { padding: 1.8rem 1.2rem; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .faq-note { padding: 1.4rem 1.2rem; }
+            .wrap { padding: 1rem 1rem 2rem; }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <!-- 深色头图 -->
+        <header class="hero">
+            <h1>爱游戏 · 电视中文游戏</h1>
+            <p>一个以中文玩家为核心、专注电视大屏的轻巧游戏站点。<br>没有冗余的跳转，只有直接可玩的休闲体验。</p>
+            <div class="motto">从遥控器开始，一步即游戏</div>
+        </header>
+
+        <!-- 介绍 & 可信说明 -->
+        <section class="content-card intro">
+            <p>
+                如果你是第一次听说这个站点，不妨把它当作一个安静的角落——<strong>爱游戏</strong> 
+                并非那种堆满弹窗和广告的门户，它更偏向实用与简单。站点主要面向电视设备以及大屏浏览器，
+                收集了一些适合手柄或遥控器操作的中文游戏，界面也做了相应的适配。
+            </p>
+            <div class="lead">
+                为什么说它值得了解？因为它的出发点很单纯：让中文用户在电视上也能轻松找到游戏。
+            </div>
+            <p>
+                站内的游戏大多属于轻量级，不需要注册或下载客户端，打开网页就能跑。 
+                维护者定期更新游戏库，同时尽量保持了页面干净——没有夸张的横幅，也没有诱导点击的陷阱。
+                从技术层面看，<a href="https://tv-chinese-igame.com">爱游戏</a> 使用了响应式布局，
+                无论是客厅的大电视还是书房的小屏幕，基本都能获得一致的浏览体验。
+            </p>
+        </section>
+
+        <!-- 特点列表 -->
+        <section class="content-card" style="padding-bottom: 1.8rem;">
+            <h2 style="font-weight: 500; font-size: 1.5rem; margin-bottom: 0.6rem; color: #1c1e28;">几个实在的特点</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>电视友好</h3>
+                    <p>按钮尺寸、导航逻辑针对遥控器操作调整，避免鼠标依赖。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>中文界面</h3>
+                    <p>全站以中文呈现，游戏名称、说明均为中文，减少理解成本。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>无需注册</h3>
+                    <p>直接打开即可游玩，不收集个人信息，也没有强制登录的环节。</p>
+                </div>
+                <div class="feature-item">
+                    <h3>轻量简洁</h3>
+                    <p>页面体积控制得比较好，加载速度快，适合配置不高的电视盒子。</p>
+                </div>
+            </div>
+            <p style="margin-top: 0.8rem; font-size: 0.95rem; color: #4a4e5e;">
+                这些特点并非空谈，如果你恰好有一台智能电视或连接大屏的电脑，不妨亲自试一试。
+            </p>
+        </section>
+
+        <!-- 场景 + 提示（类似 FAQ 摘要） -->
+        <section class="faq-note">
+            <h2>常见想法与提醒</h2>
+            <div class="faq-item">
+                <strong>“电视上玩游戏会不会很卡？”</strong>
+                <p>站内游戏大多是像素风或简单2D，对硬件要求不高。只要电视能正常打开网页，流畅度就有基本保障。</p>
+            </div>
+            <div class="faq-item">
+                <strong>“手机或电脑上也能用吗？”</strong>
+                <p>当然可以。虽然名字提到电视，但它在普通浏览器上运行良好，只是针对大屏做了额外优化。</p>
+            </div>
+            <div class="faq-item">
+                <strong>“需要安装插件或模拟器吗？”</strong>
+                <p>完全不需要。所有游戏均基于 HTML5 技术，现代浏览器原生支持，打开即玩。</p>
+            </div>
+            <div style="margin-top: 1.2rem; font-size: 0.95rem; background: #eef1fa; border-radius: 40px; padding: 0.6rem 1.2rem; display: inline-block;">
+                💡 提示：如果电视浏览器不支持某些功能，可以尝试切换到“桌面模式”或更新浏览器版本。
+            </div>
+        </section>
+
+        <!-- 温和结尾 + 链接自然出现 -->
+        <div class="closing">
+            <p>
+                如果你对电视休闲游戏感兴趣，不妨把 <a href="https://tv-chinese-igame.com">爱游戏</a> 
+                加入书签。它不算华丽，但胜在直接——打开电视、点开书签、选个游戏，仅此而已。
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #696e81;">
+                站点由个人维护，更新节奏不算快，但仍有值得一试的内容。
+            </p>
+            <div style="margin-top: 1.4rem;">
+                <span class="btn-soft">← 首页 · 游戏列表</span>
+                <span class="btn-soft" style="margin-left: 0.6rem;">关于本站</span>
+            </div>
+            <p style="margin-top: 1.8rem; font-size: 0.8rem; color: #848999;">
+                无需注册 · 即开即玩 · 中文友好
+            </p>
+        </div>
+    </div>
+</body>
+</html>
